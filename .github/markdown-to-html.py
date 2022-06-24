@@ -29,16 +29,16 @@ except IOError:
 try:
     with open(input_file, 'r') as f:
         input_file_contents = f.read()
-        variables = {}
-        for line in f:
-            name, value = line.split("=")
-            variables[name] = float(value)
-    BlogTitle = variables["BlogTitle"] 
-    BlogPostDate = variables["BlogPostDate"]     
         
 except IOError:
     sys.exit('Input file does not exist, or has no content.  Exiting')
 
+txt = open(input_file).readLines()
+BlogTitle = txt[0].split("=")[0]
+BlogPostDate = txt[1].split("=")[0]
+
+
+    
 # Set github url
 github_url = PUBLIC_GITHUB_MARKDOWN_URL
 
