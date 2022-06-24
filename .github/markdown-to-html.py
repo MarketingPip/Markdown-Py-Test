@@ -42,8 +42,8 @@ var = {}
 with open(input_file) as conf:
         for line in conf:
                 if ":" in line:
-                        name, value = line.split(":")
-                        var[name] = str(value).rstrip()
+                        name, value = line.split(":")  # Needs replaced with regex match 
+                        var[name] = str(value).rstrip() # needs a value added
 globals().update(var)
 
     
@@ -67,10 +67,72 @@ if output_file[-5:] != '.html':
     
 data = var 
 
-BlogTitle = data['psnr_y']
+BlogTitle = data['BlogTitle']
 # Write the file out that we have created
 try:
     with codecs.open(output_file, 'w', encoding='utf-8') as f:
-        f.write(BlogTitle)
+        f.write("""
+	<style>
+	.banner {
+  background-image: linear-gradient(rgba(39, 71, 118, 0.6), rgba(39, 71, 118, 0.6)), url(https://images.unsplash.com/photo-1509136561942-7d8663edaaa2?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1055&q=80);
+  background-size: cover;
+  background-position: center;
+  color: white;
+  text-shadow: 0 0 10px rgba(0,0,0,0.2);
+  padding: 80px 0px;
+}
+.banner h1 {
+  font-size: 40px;
+  margin-top: 0;
+  opacity: 0.8;
+}
+.banner p {
+  font-size: 25px;
+  margin-bottom: 0;
+  opacity: 0.9;
+  font-weight: lighter;
+}
+.container {
+  width: 900px;
+  margin: 0px auto;
+}
+.blogpost-content h2 {
+  margin-top: 50px;
+  opacity: 0.4;
+  font-weight: bolder;
+}
+.blogpost-content p {
+  font-weigh: lighter;
+  opacity: 0.5
+  
+}
+@media(max-width: 992px) {
+  .container {
+    width: 700px;
+  }
+}
+@media(max-width: 768px) {
+  .container {
+    width: 500px;
+  }
+}
+@media(max-width: 480px) {
+  .container {
+    width: 350px;
+  }
+}
+</style>
+<!-- Image and text -->
+<div class="banner">
+      <div class="container">
+        <h1>Statisc-Blog</h1>""" + 
+        f"<p>{BlogTitle}</p>" + """
+      </div>
+    </div>
+    <div class="container blogpost-content"> """ +
+   html_response.text + """
+    </div>
+	
+	""")
 except IOError:
     sys.exit(u'Unable to write to file: {0}'.format(output_file))
