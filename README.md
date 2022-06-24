@@ -1,7 +1,4 @@
-BlogTitle = Hello
-
-BlogPostDate = Test, 1, 2020
-
+{'BlogTitle=Hello', 'BlogPostDate=2020,2929'}
 
 ## Hello! 🤙
 
