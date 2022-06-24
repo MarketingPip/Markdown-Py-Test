@@ -16,3 +16,10 @@ OG_Description: test one
 So cool
 
 - [ ] hello
+
+
+```ruby
+require 'redcarpet'
+markdown = Redcarpet.new("Hello World!")
+puts markdown.to_html
+```
