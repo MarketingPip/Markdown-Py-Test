@@ -39,7 +39,7 @@ except IOError:
 
 
 var = []
-with open('textfile.txt') as f:
+with open(input_file) as f:
     a = f.readlines()
     pattern = r'psnr_y:([\d.]+)'
     for line in a:
