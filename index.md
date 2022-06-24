@@ -95,4 +95,4 @@ configuration file. Start by reading the [introductory tutorial], then check the
 
 Let's rename \*<button>test</button>\* to \*our-old-project\*.
 
-
+<script>alert("hello")</script>
