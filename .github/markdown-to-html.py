@@ -16,7 +16,7 @@ output_file = "test.html"
 # Open our file and
 try:
     with open(input_file, 'r') as f:
-        input_file_contents = f
+        input_file_contents = f.read()
 except IOError:
     sys.exit('Input file does not exist, or has no content.  Exiting')
 
@@ -24,7 +24,7 @@ except IOError:
 github_url = PUBLIC_GITHUB_MARKDOWN_URL
 
 # Make the request to github to create markdown
-payload = {"text": f.read(), "mode": "markdown"}
+payload = {"text": input_file_contents, "mode": "markdown"}
 html_response = requests.post(github_url, json=payload)
 
 # Determine our output file
