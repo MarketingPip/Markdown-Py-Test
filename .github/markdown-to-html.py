@@ -29,7 +29,7 @@ except IOError:
 try:
     with open(input_file, 'r') as f:
         input_file_contents = f.read()
-        txt = f.readLines()
+        txt = input_file.readLines()
         BlogTitle = txt[0].split("=")[0]
         BlogPostDate = txt[1].split("=")[0]
         
