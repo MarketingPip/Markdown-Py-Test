@@ -44,8 +44,8 @@ with open(input_file) as conf:
                 if ":" in line:
                         name, value = line.split(":")  # Needs replaced with regex match 
                         var[name] = str(value).rstrip() # needs a value added
-			date, value = line.split("==")  # Needs replaced with regex match
-			var[date] = str(value).rstrip() # needs a value added
+			                  date, value = line.split("==")  # Needs replaced with regex match
+			                  var[date] = str(value).rstrip() # needs a value added
 globals().update(var)
 
     
