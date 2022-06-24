@@ -36,9 +36,10 @@ except IOError:
 
 with open(input_file) as f:
     txt = list(f)
-    BlogTitle = txt[0].split("=")[0]
-    BlogPostDate = txt[1].split("=")[0]
-
+    pattern = r'psnr_y:([\d.]+)'
+    for line in txt:
+        BlogTitle = re.search(pattern, line)[1]
+        BlogPostDate = re.search(pattern, line)[2]
 
     
 # Set github url
