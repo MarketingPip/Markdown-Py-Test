@@ -350,7 +350,7 @@ except IOError:
 try:
     with codecs.open(index_output_file, 'w', encoding='utf-8') as f:
         f.write(f"""<body>{index_file_contents}</body>
-	<script src="https://cdn.jsdelivr.net/gh/MarketingPipeline/Markdown-Tag/markdown-tag.js"></script> 
+	   <script src="https://cdn.jsdelivr.net/gh/MarketingPipeline/Markdown-Tag/markdown-tag-GitHub.js"></script> 
 	""")
 except IOError: 
     sys.exit(u'Unable to write to file: {0}'.format(index_output_file))
