@@ -40,6 +40,6 @@ if output_file[-5:] != '.html':
 # Write the file out that we have created
 try:
     with codecs.open(output_file, 'w', encoding='utf-8') as f:
-        f.write(html_response.text)
+        f.write(f"<h1> Welcome to my blog </h1> {html_response.text}")
 except IOError:
     sys.exit(u'Unable to write to file: {0}'.format(output_file))
