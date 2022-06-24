@@ -42,19 +42,11 @@ var = {}
 with open(input_file) as conf:
         for line in conf:
                 if ":" in line:
-                        name, value = line.split(":")  # Needs replaced with regex match as this example shows (BlogTitle=Value)
+                        name, value = line.split(":")  # Needs replaced with regex match 
                         var[name] = str(value).rstrip() # needs a value added
-			date, value = line.split("==")  # Needs replaced with regex match as this example shows (BlogPost=Value)
-                        var[date] = str(value).rstrip() # needs a value added
-			
-			
+			date, value = line.split("==")  # Needs replaced with regex match
+			var[date] = str(value).rstrip() # needs a value added
 globals().update(var)
-
-data = var 
-
-BlogTitle = data['BlogTitle']
-BlogDate = data['BlogDate']
-
 
     
 # Set github url
@@ -75,6 +67,11 @@ if output_file[-5:] != '.html':
     output_file += '.html'
 
     
+data = var 
+
+BlogTitle = data['BlogTitle']
+BlogDate = data['BlogDate']
+
 
 # Write the file out that we have created
 try:
