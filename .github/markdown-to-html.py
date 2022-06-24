@@ -70,13 +70,21 @@ if output_file[-5:] != '.html':
 data = var 
 
 BlogTitle = data['BlogTitle']
-BlogDate = data['BlogDate']
+if data['BlogDate']:
+  BlogDate = data['BlogDate']
+else:
+  BlogDate = ""
+
+if data['SEO_Title']:
+  SiteTitle = data['SEO_Title'] + "| Site Name"
+else:
+  SiteTitle = "Site Name"
 
 
 # Write the file out that we have created
 try:
     with codecs.open(output_file, 'w', encoding='utf-8') as f:
-        f.write("""
+        f.write(f"<head><title>{SiteTitle}</title>" + """
 	<style>
 	
 	body { 
