@@ -22,7 +22,7 @@ except IOError:
     sys.exit('Input file does not exist, or has no content.  Exiting')
 
 # Set github url
-github_url = INTERNAL_GITHUB_MARKDOWN_URL if args.use_internal else PUBLIC_GITHUB_MARKDOWN_URL
+github_url = PUBLIC_GITHUB_MARKDOWN_URL
 
 # Make the request to github to create markdown
 headers = {'content-type': 'text/x-markdown'}
