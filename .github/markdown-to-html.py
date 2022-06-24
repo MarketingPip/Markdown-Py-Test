@@ -65,7 +65,7 @@ if output_file[-5:] != '.html':
     output_file += '.html'
 
     
-data = json.load(f)    
+data = var 
 
 BlogTitle = data['psnr_y']
 # Write the file out that we have created
