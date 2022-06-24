@@ -27,13 +27,13 @@ except IOError:
 
 
 # Open our file and
-#try:
- #   with open(input_file, 'r') as f:
-  #      input_file_contents = f.read()
+try:
+    with open(input_file, 'r') as f:
+        input_file_contents = f.read()
         
         
-#except IOError:
- #   sys.exit('Input file does not exist, or has no content.  Exiting')
+except IOError:
+    sys.exit('Input file does not exist, or has no content.  Exiting')
 
 
 
@@ -46,8 +46,7 @@ with open(input_file) as conf:
                         var[name] = str(value).rstrip() # needs a value added
 			date, value = line.split("==")  # Needs replaced with regex match as this example shows (BlogPost=Value)
                         var[date] = str(value).rstrip() # needs a value added
-			content, value = line.split("===")  # Needs replaced with regex match as this example shows (BlogPost=Value)
-                        var[content] = str(value).rstrip() # needs a value added
+			
 			
 globals().update(var)
 
@@ -55,14 +54,14 @@ data = var
 
 BlogTitle = data['BlogTitle']
 BlogDate = data['BlogDate']
-BlogContent = data['BlogContent']
+
 
     
 # Set github url
 github_url = PUBLIC_GITHUB_MARKDOWN_URL
 
 # Make the request to github to create markdown
-payload = {"text": BlogContent, "mode": "markdown"}
+payload = {"text": input_file_contents, "mode": "markdown"}
 html_response = requests.post(github_url, json=payload)
 
 # Determine our output file
@@ -116,7 +115,7 @@ try:
 }
 .blogpost-content p {
   font-weigh: lighter;
-  opacity: 0.5
+
   
 }
 @media(max-width: 992px) {
