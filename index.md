@@ -192,4 +192,3 @@ details.
 
 Let's rename \*<button>test</button>\* to \*our-old-project\*.
 
-<script>alert("hello")</script>
