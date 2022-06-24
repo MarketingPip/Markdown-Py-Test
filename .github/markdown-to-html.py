@@ -30,6 +30,7 @@ except IOError:
 try:
     with open(input_file, 'r') as f:
         input_file_contents = f.read()
+        input_file_contents = input_file_contents.split("=================END OF SEO SETTINGS============",1)[1] # Get all content after SEO settings
         
         
 except IOError:
