@@ -75,7 +75,7 @@ if data['BlogDate']:
 else:
   BlogDate = ""
 
-if data['SEO_Title']:
+if data['SEO_Title'] in data:
   SiteTitle = data['SEO_Title'] + "| Site Name"
 else:
   SiteTitle = "Site Name"
