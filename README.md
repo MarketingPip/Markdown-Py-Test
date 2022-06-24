@@ -1,4 +1,6 @@
-{'BlogTitle=Hello', 'BlogPostDate=2020,2929'}
+BlogTitle = Hello
+
+BlogPostDate = 2020,2929
 
 ## Hello! 🤙
 
