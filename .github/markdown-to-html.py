@@ -37,14 +37,13 @@ except IOError:
 
 
 
-rows = []
-with open(input_file, "r") as f:
-    for row in f.readlines():
-        value_pairs = row.strip().split(" ")
-        print(value_pairs)
-        values = {pair.split(":")[0]: pair.split(":")[1] for pair in value_pairs}
-        print(values["psnr_y"])
-        rows.append(values)
+var = {}
+with open("myvars.txt") as conf:
+        for line in conf:
+                if ":" in line:
+                        name, value = line.split(":")
+                        var[name] = str(value).rstrip()
+globals().update(var)
 
     
 # Set github url
@@ -67,6 +66,6 @@ if output_file[-5:] != '.html':
 # Write the file out that we have created
 try:
     with codecs.open(output_file, 'w', encoding='utf-8') as f:
-        f.write(rows)
+        f.write(var)
 except IOError:
     sys.exit(u'Unable to write to file: {0}'.format(output_file))
