@@ -9,10 +9,10 @@ import requests
 PUBLIC_GITHUB_MARKDOWN_URL = 'https://api.github.com/markdown'
 INTERNAL_GITHUB_MARKDOWN_URL = 'http://api.github.cerner.com/markdown/raw'
 
-input_file = "test.html"
+input_file = "README.md"
 input_file_contents = None
 
-output_file = "markdown.md"
+output_file = "test.html"
 
 # Open our file and
 try:
@@ -25,7 +25,7 @@ except IOError:
 github_url = PUBLIC_GITHUB_MARKDOWN_URL
 
 # Make the request to github to create markdown
-headers = {'content-type': 'text/x-markdown'}
+headers = {'content-type': 'text/gfm'}
 html_response = requests.post(github_url, data=input_file_contents, headers=headers)
 
 # Determine our output file
