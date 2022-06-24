@@ -12,6 +12,11 @@ PUBLIC_GITHUB_MARKDOWN_URL = 'https://api.github.com/markdown'
 input_file = "README.md"
 input_file_contents = None
 
+
+index_file = "index.md"
+index_file_contents = None
+index_output_file = "index.html"
+
 output_file = "test.html"
 
 
@@ -31,6 +36,16 @@ try:
     with open(input_file, 'r') as f:
         input_file_contents = f.read()
         input_file_contents = input_file_contents.split("=================END OF SEO SETTINGS============",1)[1] # Get all content after SEO settings
+        
+        
+except IOError:
+    sys.exit('Input file does not exist, or has no content.  Exiting')
+
+# Open Index File
+
+try:
+    with open(index_file, 'r') as f:
+        index_file_contents = f.read()
         
         
 except IOError:
@@ -64,10 +79,21 @@ else:
     output_file = u'{0}.html'.format(input_file)
 
 # ensure we have a .html suffix on our file
-if output_file[-5:] != '.html':
-    output_file += '.html'
+if index_output_file[-5:] != '.html':
+    index_output_file += '.html'
 
-    
+if index_output_file:
+    index_output_file = index_output_file
+else:
+    index_output_file = u'{0}.html'.format(index_file)
+
+# ensure we have a .html suffix on our file
+if index_output_file[-5:] != '.html':
+    index_output_file += '.html'
+
+
+
+
 data = var 
 
 BlogTitle = data['BlogTitle']
@@ -317,3 +343,14 @@ pre[class*="language-"] {
 	""")
 except IOError:
     sys.exit(u'Unable to write to file: {0}'.format(output_file))
+
+
+
+# Write the index file out
+try:
+    with codecs.open(index_output_file, 'w', encoding='utf-8') as f:
+        f.write(f"""{index_file_contents}
+	
+	""")
+except IOError:
+    sys.exit(u'Unable to write to file: {0}'.format(index_output_file))
