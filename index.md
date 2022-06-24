@@ -1,4 +1,5 @@
-
+<md>
+  
 MkDocs is a **fast**, **simple** and **downright gorgeous** static site
 generator that's geared towards building project documentation. Documentation
 source files are written in Markdown, and configured with a single YAML
@@ -6,8 +7,9 @@ configuration file. Start by reading the [introductory tutorial], then check the
 [User Guide] for more information.
 
 [introductory tutorial]: getting-started.md
-[User Guide]: user-guide/index.md
-
+[User Guide]: user-guide/index.md 
+  
+</md>
 <div class="text-center">
 <a href="getting-started/" class="btn btn-primary" role="button">Getting Started</a>
 <a href="user-guide/" class="btn btn-primary" role="button">User Guide</a>
@@ -86,3 +88,6 @@ configuration file. Start by reading the [introductory tutorial], then check the
 
 
 Let's rename \*<button>test</button>\* to \*our-old-project\*.
+
+
+<script src="https://cdn.jsdelivr.net/gh/MarketingPipeline/Markdown-Tag/markdown-tag.js"></script> 
