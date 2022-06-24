@@ -23,12 +23,27 @@ try:
 except IOError:
     sys.exit('Template does not exist, or has no content.  Exiting')
 
+variables = {}
+
+with open("values.txt") as f:
+    for line in f:
+        name, value = line.split("=")
+        variables[name] = float(value)
+
+
 
 
 # Open our file and
 try:
     with open(input_file, 'r') as f:
         input_file_contents = f.read()
+        variables = {}
+        for line in f:
+            name, value = line.split("=")
+            variables[name] = float(value)
+    BlogTitle = variables["BlogTitle"] 
+    BlogPostDate = variables["BlogPostDate"]     
+        
 except IOError:
     sys.exit('Input file does not exist, or has no content.  Exiting')
 
@@ -52,6 +67,6 @@ if output_file[-5:] != '.html':
 # Write the file out that we have created
 try:
     with codecs.open(output_file, 'w', encoding='utf-8') as f:
-        f.write(blog_post_template_contents)
+        f.write(BlogTitle + BlogPostDate)
 except IOError:
     sys.exit(u'Unable to write to file: {0}'.format(output_file))
