@@ -135,4 +135,6 @@ configuration file. Start by reading the [introductory tutorial], then check the
   </div>
 </div>
 </div>
-<button>test</button>
+
+
+Let's rename \*<button>test</button>\* to \*our-old-project\*.
