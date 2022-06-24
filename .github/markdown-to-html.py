@@ -39,7 +39,7 @@ with open(input_file) as f:
     pattern = r'psnr_y:([\d.]+)'
     for line in txt:
         BlogTitle = re.search(pattern, line)[1]
-        BlogPostDate = re.search(pattern, line)[2]
+        BlogPostDate = re.search(pattern, line)[1]
 
     
 # Set github url
