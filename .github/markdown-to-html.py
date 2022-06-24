@@ -80,10 +80,50 @@ if not data['SEO_Title']:
 else:
   SiteTitle = data['SEO_Title'] + "| Site Name"
 
+Facebook_Meta = ""
+
+if not data['OG_Title']:
+  pass
+else:
+  Facebook_Meta += """<meta property="og:title" content="Simply Docs Demo">"""
+
+if not data['OG_Image']:
+  pass
+else:
+  Facebook_Meta += """<meta property="og:image" content="./assets/images/OG_image.png">"""
+
+
+if not data['OG_URL']:
+  pass
+else:
+  Facebook_Meta += """<meta property="og:url" content="https://marketingpipeline.github.io/Simply-Docs/">"""
+
+if not data['OG_Type']:
+  pass
+else:
+  Facebook_Meta += """<meta property="og:type" content="article">"""
+
+if not data['OG_Description']:
+  pass
+else:
+  Facebook_Meta += """<meta property="og:description" content="A Simply Docs / Blog Template built using Simple.css.">"""
+
+
+
 # Write the file out that we have created
 try:
     with codecs.open(output_file, 'w', encoding='utf-8') as f:
-        f.write(f"<head><title>{SiteTitle}</title>" + """
+        f.write(f"""<head><title>{SiteTitle}
+            <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>{SiteTitle}</title>
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1.28.0/prism.min.js">
+{Facebook_Meta}         
+
+
+        </title>""" + """
 	<style>
 	
 	body { 
