@@ -7,7 +7,6 @@ import sys
 import requests
 
 PUBLIC_GITHUB_MARKDOWN_URL = 'https://api.github.com/markdown'
-INTERNAL_GITHUB_MARKDOWN_URL = 'http://api.github.cerner.com/markdown/raw'
 
 input_file = "README.md"
 input_file_contents = None
@@ -17,7 +16,7 @@ output_file = "test.html"
 # Open our file and
 try:
     with open(input_file, 'r') as f:
-        input_file_contents = "".join(f.readlines())
+        input_file_contents = f
 except IOError:
     sys.exit('Input file does not exist, or has no content.  Exiting')
 
@@ -25,8 +24,8 @@ except IOError:
 github_url = PUBLIC_GITHUB_MARKDOWN_URL
 
 # Make the request to github to create markdown
-headers = {'content-type': 'text/gfm'}
-html_response = requests.post(github_url, data=input_file_contents, headers=headers)
+payload = {"text": f.read(), "mode": "markdown"}
+html_response = requests.post(github_url, json=payload)
 
 # Determine our output file
 if output_file:
