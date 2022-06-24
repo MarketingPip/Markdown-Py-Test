@@ -43,7 +43,7 @@ var = {}
 with open(input_file) as conf:
         for line in conf:
                 if ":" in line:
-                        name, value = line.split(":")  # Needs replaced with regex match 
+                        name, value = line.split('=================END OF SEO SETTINGS============')[0].split(':')  # Needs replaced with regex match 
                         var[name] = str(value).rstrip() # needs a value added
                         
 globals().update(var)
