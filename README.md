@@ -1,4 +1,6 @@
+BlogTitle = Hello
 
+BlogPostDate = Test, 1, 2020
 
 
 ## Hello! 🤙
