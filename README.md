@@ -1,7 +1,16 @@
+<code>Blog Title</code>
+
 BlogTitle:Hello World
+
+<code>Blog Post Date</code>
+
 BlogDate:Test 1, 2020
+
+<code>Site Title</code>
+
 SEO_Title:Hello
 
+<code>OG Data (Optional)</code>
 
 OG_Title: test 4
 OG_Image: hello
