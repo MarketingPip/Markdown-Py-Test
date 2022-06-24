@@ -23,14 +23,6 @@ try:
 except IOError:
     sys.exit('Template does not exist, or has no content.  Exiting')
 
-variables = {}
-
-with open("values.txt") as f:
-    for line in f:
-        name, value = line.split("=")
-        variables[name] = float(value)
-
-
 
 
 # Open our file and
