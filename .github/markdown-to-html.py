@@ -181,7 +181,7 @@ try:
 <!-- Image and text -->
 <div class="banner">
       <div class="container">""" +
-     f"<h1>{BlogTitle}</h1>" + 
+     f"<h1>{BlogTitle} t</h1>" + 
         f"<p>{BlogDate}</p>" + """
       </div>
     </div>
