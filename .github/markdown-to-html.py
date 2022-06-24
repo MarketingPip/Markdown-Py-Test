@@ -40,10 +40,11 @@ except IOError:
 
 var = {}
 with open(input_file) as conf:
+        pattern = r'psnr_y:([\d.]+)'
         for line in conf:
                 if ":" in line:
-                        name, value = line.split(":")
-                        var[name] = str(value).rstrip()
+                        name, value = re.search(pattern, line)[1]
+                        var[name] = str(value)
 globals().update(var)
 
     
