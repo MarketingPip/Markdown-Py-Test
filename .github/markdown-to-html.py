@@ -34,12 +34,13 @@ try:
 except IOError:
     sys.exit('Input file does not exist, or has no content.  Exiting')
 
+a_list = []    
+    
 with open(input_file) as f:
     txt = f.readlines()
     pattern = r'psnr_y:([\d.]+)'
     for line in txt:
-        BlogTitle = re.search(pattern, line)[1]
-        BlogPostDate = re.search(pattern, line)[1]
+        a_list.append(re.search(pattern, line)[1])
 
     
 # Set github url
@@ -62,6 +63,6 @@ if output_file[-5:] != '.html':
 # Write the file out that we have created
 try:
     with codecs.open(output_file, 'w', encoding='utf-8') as f:
-        f.write(BlogTitle + BlogPostDate)
+        f.write(a_list)
 except IOError:
     sys.exit(u'Unable to write to file: {0}'.format(output_file))
