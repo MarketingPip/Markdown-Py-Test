@@ -119,7 +119,7 @@ try:
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 
-<script src="https://cdn.jsdelivr.net/npm/prismjs@1.28.0/prism.min.js">
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1.28.0/prism.min.js"></script>
 {Facebook_Meta}         
 
 
