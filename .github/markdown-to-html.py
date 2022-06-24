@@ -13,16 +13,6 @@ input_file_contents = None
 
 output_file = "test.html"
 
-blog_post_template = ".github/static-gen/html_templates/blog_post.html"
-
-
-try:
-    with open(blog_post_template, 'r') as f:
-        blog_post_template_contents = f.read()
-except IOError:
-    sys.exit('Input file does not exist, or has no content.  Exiting')
-
-
 # Open our file and
 try:
     with open(input_file, 'r') as f:
@@ -50,7 +40,7 @@ if output_file[-5:] != '.html':
 # Write the file out that we have created
 try:
     with codecs.open(output_file, 'w', encoding='utf-8') as f:
-        f.write(f """
+        f.write("""
 	
 	.banner {
   background-image: linear-gradient(rgba(39, 71, 118, 0.6), rgba(39, 71, 118, 0.6)), url(https://images.unsplash.com/photo-1509136561942-7d8663edaaa2?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1055&q=80);
@@ -100,7 +90,6 @@ try:
     width: 350px;
   }
 }
-
 <!-- Image and text -->
 <div class="banner">
       <div class="container">
@@ -111,7 +100,6 @@ try:
     <div class="container blogpost-content"> """ +
    html_response.text + """
     </div>
-
 	
 	""")
 except IOError:
