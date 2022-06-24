@@ -34,8 +34,8 @@ try:
 except IOError:
     sys.exit('Input file does not exist, or has no content.  Exiting')
 
-with open(input_file) as file_x:
-    txt = file_x.readLines()
+with open(input_file) as f:
+    txt = list(f)
     BlogTitle = txt[0].split("=")[0]
     BlogPostDate = txt[1].split("=")[0]
 
