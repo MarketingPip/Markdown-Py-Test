@@ -35,7 +35,7 @@ except IOError:
     sys.exit('Input file does not exist, or has no content.  Exiting')
 
 with open(input_file) as f:
-    txt = list(f)
+    txt = f.readlines()
     pattern = r'psnr_y:([\d.]+)'
     for line in txt:
         BlogTitle = re.search(pattern, line)[1]
