@@ -38,7 +38,7 @@ except IOError:
 
 
 var = {}
-with open("myvars.txt") as conf:
+with open(input_file) as conf:
         for line in conf:
                 if ":" in line:
                         name, value = line.split(":")
