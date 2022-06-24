@@ -94,7 +94,7 @@ try:
 <!-- Image and text -->
 <div class="banner">
       <div class="container">
-        <h1>Static-Blog</h1>
+        <h1>Statisc-Blog</h1>
         <p></p>
       </div>
     </div>
