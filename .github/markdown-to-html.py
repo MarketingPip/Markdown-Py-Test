@@ -43,7 +43,7 @@ with open(input_file) as conf:
         for line in conf:
                 if ":" in line:
                         name, value = line.split(":")
-                        var[name] = str(value)
+                        var[name] = str(value).rstrip()
 globals().update(var)
 
     
@@ -65,10 +65,12 @@ if output_file[-5:] != '.html':
     output_file += '.html'
 
     
-t = json.dumps(var)    
+data = json.load(f)    
+
+BlogTitle = data['psnr_y']
 # Write the file out that we have created
 try:
     with codecs.open(output_file, 'w', encoding='utf-8') as f:
-        f.write(t)
+        f.write(BlogTitle)
 except IOError:
     sys.exit(u'Unable to write to file: {0}'.format(output_file))
