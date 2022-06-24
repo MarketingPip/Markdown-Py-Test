@@ -29,14 +29,15 @@ except IOError:
 try:
     with open(input_file, 'r') as f:
         input_file_contents = f.read()
-        txt = input_file.readLines()
-        BlogTitle = txt[0].split("=")[0]
-        BlogPostDate = txt[1].split("=")[0]
+        
         
 except IOError:
     sys.exit('Input file does not exist, or has no content.  Exiting')
 
-
+with open(input_file) as file_x:
+    txt = file_x.readLines()
+    BlogTitle = txt[0].split("=")[0]
+    BlogPostDate = txt[1].split("=")[0]
 
 
     
