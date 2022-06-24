@@ -34,13 +34,17 @@ try:
 except IOError:
     sys.exit('Input file does not exist, or has no content.  Exiting')
 
-a_list = []    
-    
-with open(input_file) as f:
-    txt = f.readlines()
-    pattern = r'psnr_y:([\d.]+)'
-    for line in txt:
-        a_list.append(re.search(pattern, line)[1])
+
+
+
+rows = []
+with open(input_file, "r") as f:
+    for row in f.readlines():
+        value_pairs = row.strip().split(" ")
+        print(value_pairs)
+        values = {pair.split(":")[0]: pair.split(":")[1] for pair in value_pairs}
+        print(values["psnr_y"])
+        rows.append(values)
 
     
 # Set github url
@@ -63,6 +67,6 @@ if output_file[-5:] != '.html':
 # Write the file out that we have created
 try:
     with codecs.open(output_file, 'w', encoding='utf-8') as f:
-        f.write(a_list)
+        f.write(rows)
 except IOError:
     sys.exit(u'Unable to write to file: {0}'.format(output_file))
