@@ -3,7 +3,7 @@
 
 import codecs
 import sys
-
+import re
 import requests
 
 PUBLIC_GITHUB_MARKDOWN_URL = 'https://api.github.com/markdown'
