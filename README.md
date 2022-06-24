@@ -1,6 +1,5 @@
-BlogTitle = Hello
-
-BlogPostDate = 2020,2929
+psnr_y:37.10
+psnr_y:37.10
 
 ## Hello! 🤙
 
