@@ -13,9 +13,13 @@ SEO_Title:Hello
 <code>OG Data (Optional)</code>
 
 OG_Title: test 4
+
 OG_Image: hello
+
 OG_URL: test3
+
 OG_Type: test two
+
 OG_Description: test one
 
 =================END OF SEO SETTINGS============
