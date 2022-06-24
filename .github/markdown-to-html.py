@@ -38,14 +38,14 @@ except IOError:
 
 
 
-var = {}
-with open(input_file) as conf:
-        pattern = r'psnr_y:([\d.]+)'
-        for line in conf:
-                if ":" in line:
-                        name, value = re.search(pattern, line)[1]
-                        var[name] = str(value)
-globals().update(var)
+var = []
+with open('textfile.txt') as f:
+    a = f.readlines()
+    pattern = r'psnr_y:([\d.]+)'
+    for line in a:
+        var.append(re.search(pattern, line)[1])
+
+
 
     
 # Set github url
@@ -66,7 +66,7 @@ if output_file[-5:] != '.html':
     output_file += '.html'
 
     
-t = json.dumps(var)    
+t = var
 # Write the file out that we have created
 try:
     with codecs.open(output_file, 'w', encoding='utf-8') as f:
