@@ -41,7 +41,7 @@ if output_file[-5:] != '.html':
 try:
     with codecs.open(output_file, 'w', encoding='utf-8') as f:
         f.write("""
-	
+	<style>
 	.banner {
   background-image: linear-gradient(rgba(39, 71, 118, 0.6), rgba(39, 71, 118, 0.6)), url(https://images.unsplash.com/photo-1509136561942-7d8663edaaa2?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1055&q=80);
   background-size: cover;
@@ -90,6 +90,7 @@ try:
     width: 350px;
   }
 }
+</style>
 <!-- Image and text -->
 <div class="banner">
       <div class="container">
