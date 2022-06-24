@@ -70,16 +70,15 @@ if output_file[-5:] != '.html':
 data = var 
 
 BlogTitle = data['BlogTitle']
-if data['BlogDate']:
-  BlogDate = data['BlogDate']
-else:
+if not data['BlogDate']:
   BlogDate = ""
-
-if data['SEO_Title'] in data:
-  SiteTitle = data['SEO_Title'] + "| Site Name"
 else:
-  SiteTitle = "Site Name"
+  BlogDate = data['BlogDate']
 
+if not data['SEO_Title']:
+  SiteTitle = "Site Name"
+else:
+  SiteTitle = data['SEO_Title'] + "| Site Name"
 
 # Write the file out that we have created
 try:
