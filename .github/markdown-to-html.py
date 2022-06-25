@@ -17,6 +17,11 @@ from pathlib import Path
 
 # Permalinks for File Paths
 
+## Permalink Settings
+
+permalinks_file= ".github/static-gen/settings/permalinks.md"
+permalinks_file_contents = None
+
 ## NEEDS IMPROVEMENT
 
 PermaLinks = {}
@@ -49,10 +54,7 @@ nav_menu_settings_file= "./content/settings/nav_menu.md"
 nav_menu_settings_file_contents = None
 
 
-## Permalink Settings
 
-permalinks_file= ".github/static-gen/settings/permalinks.md"
-permalinks_file_contents = None
 
 # Define Output File Names Here
 index_output_file = "index.html"
