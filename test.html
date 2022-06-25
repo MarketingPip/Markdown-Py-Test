@@ -188,26 +188,42 @@ pre[class*="language-"] {
 }
 </style>
 <!-- Image and text -->
+<body>
 <div class="banner">
       <div class="container"><h1>Hello World t</h1><p>Test 1, 2020</p>
       </div>
     </div>
-    <div class="container blogpost-content"> <h2>
-<a id="user-content-hello-world" class="anchor" href="#hello-world" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Hello world</h2>
-<p>So cool</p>
-<ul>
-<li>[ ] hello</li>
-</ul>
-<div class="highlight highlight-source-ruby"><pre><span class="pl-en">require</span> <span class="pl-s">'redcarpet'</span>
-<span class="pl-s1">markdown</span> <span class="pl-c1">=</span> <span class="pl-v">Redcarpet</span><span class="pl-kos">.</span><span class="pl-en">new</span><span class="pl-kos">(</span><span class="pl-s">"Hello World!"</span><span class="pl-kos">)</span>
-<span class="pl-en">puts</span> <span class="pl-s1">markdown</span><span class="pl-kos">.</span><span class="pl-en">to_html</span></pre></div>
-<pre><code>
-    
+    <div class="container blogpost-content"> 
+
+
+## Hello world 
+
+
+So cool
+
+- [ ] hello
+
+
+```ruby
+require 'redcarpet'
+markdown = Redcarpet.new("Hello World!")
+puts markdown.to_html
+```
+
+
+
+<pre class="language-markup"><code>
+    <!-- code content to highlight... -->
 </code></pre>
-<h4>
-<a id="user-content-rawr" class="anchor" href="#rawr" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>rawr</h4>
-<p>test</p>
+
+#### rawr 
+
+
+test 
+
+
 
     </div>
-	
+	</body>
+	 <script src="https://cdn.jsdelivr.net/gh/MarketingPipeline/Markdown-Tag/markdown-tag-GitHub.js"></script> 
 	
