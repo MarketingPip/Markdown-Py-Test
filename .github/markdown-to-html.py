@@ -15,7 +15,7 @@ input_file = "README.md"
 input_file_contents = None
 index_file = "index.md"
 index_file_contents = None
-nav_menu_settings_file= "/content/settings/nav_menu.md"
+nav_menu_settings_file= "content/settings/nav_menu.md"
 nav_menu_settings_file_contents = None
 
 
