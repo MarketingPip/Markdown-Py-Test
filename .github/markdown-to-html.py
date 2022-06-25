@@ -33,7 +33,7 @@ with open(permalinks_file) as f:
                         PermaLinks[PermaLink] = str(value).rstrip() # needs a value added					
 			
 globals().update(PermaLinks)
-
+output_file = PermaLinks['Blog_PermaLink'] + "blog_post.html"
 # Define Input File Names / Paths Here
 
 
@@ -58,7 +58,7 @@ nav_menu_settings_file_contents = None
 
 # Define Output File Names Here
 index_output_file = "index.html"
-output_file = PermaLinks['Blog_PermaLink'] + "blog_post.html"
+
 
 # Open the templates
 blog_post_template = ".github/static-gen/html_templates/blog_post.html"
