@@ -409,7 +409,9 @@ except IOError:
 # Write the index file out
 try:
     with codecs.open(index_output_file, 'w', encoding='utf-8') as f:
-        f.write(f"""<body>{index_file_contents}</body>
+        f.write(f"""
+	<link rel="stylesheet" href="./assets/style.css">
+	<body>{index_file_contents}</body>
 	   <script src="https://cdn.jsdelivr.net/gh/MarketingPipeline/Markdown-Tag/markdown-tag-GitHub.js"></script> 
 	""")
 except IOError: 
