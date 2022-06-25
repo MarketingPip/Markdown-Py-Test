@@ -34,7 +34,7 @@ permalinks_file_contents = None
 
 # Define Output File Names Here
 index_output_file = "index.html"
-output_file = "/pages/test.html"
+output_file = "pages/test.html"
 
 
 # Open the templates
