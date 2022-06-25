@@ -7,10 +7,32 @@ import re
 #import requests
 import json
 
+from pathlib import Path
+
+
 #PUBLIC_GITHUB_MARKDOWN_URL = 'https://api.github.com/markdown'
 
 
+
+
+# Permalinks for File Paths
+
+## NEEDS IMPROVEMENT
+
+PermaLinks = {}
+with open(permalinks_file) as f:
+        for line in f:
+                if ":" in line:
+                        PermaLink, value = line.split('=================END OF PERMALINK SETTINGS============')[0].split(':')  # Needs replaced with regex match 
+                        PermaLinks[PermaLink] = str(value).rstrip() # needs a value added					
+			
+globals().update(PermaLinks)
+
 # Define Input File Names / Paths Here
+
+output_file = Path(PermaLinks['Blog_PermaLink'])  + "blog_post.html"
+output_file.parent.mkdir(exist_ok=True, parents=True)
+
 
 # Blog File Example
 input_file = ".github/static-gen/content/blog_posts/EXAMPLE.MD"
@@ -35,7 +57,7 @@ permalinks_file_contents = None
 # Define Output File Names Here
 index_output_file = "index.html"
 output_file = "./pages/test2.html"
-
+output_file.parent.mkdir(exist_ok=True, parents=True)
 
 # Open the templates
 blog_post_template = ".github/static-gen/html_templates/blog_post.html"
@@ -88,16 +110,7 @@ with open(nav_menu_settings_file) as nav_menu_file:
                         NavMenuLinks[Link] = str(value).rstrip() # needs a value added		
 			
 			
-## NEEDS IMPROVEMENT
 
-PermaLinks = {}
-with open(permalinks_file) as f:
-        for line in f:
-                if ":" in line:
-                        PermaLink, value = line.split('=================END OF PERMALINK SETTINGS============')[0].split(':')  # Needs replaced with regex match 
-                        PermaLinks[PermaLink] = str(value).rstrip() # needs a value added					
-			
-globals().update(PermaLinks)
     
 # Set github url
 #github_url = PUBLIC_GITHUB_MARKDOWN_URL
@@ -180,8 +193,6 @@ else:
   Facebook_Meta += """<meta property="og:description" content="A Simply Docs / Blog Template built using Simple.css.">"""
 
 
-Blog_Output_Path = PermaLinks['Blog_PermaLink'] + output_file
-print(Blog_Output_Path)
 
 # Write the file out that we have created
 try:
