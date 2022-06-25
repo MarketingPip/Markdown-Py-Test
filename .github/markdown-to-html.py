@@ -34,7 +34,7 @@ with open(permalinks_file) as f:
 globals().update(PermaLinks)
 
 # Define Input File Names / Paths Here
-output_file = PermaLinks['Blog_PermaLink']) + "blog_post.html"
+output_file = PermaLinks['Blog_PermaLink'] + "blog_post.html"
 
 os.makedirs(os.path.dirname(output_file), exist_ok=True)
 
