@@ -19,9 +19,18 @@ input_file_contents = None
 # Index File
 index_file = ".github/static-gen/content/index.md"
 index_file_contents = None
+
+# Setting(s) Files
+
+## Nav Menu
 nav_menu_settings_file= "./content/settings/nav_menu.md"
 nav_menu_settings_file_contents = None
 
+
+## Permalink Settings
+
+permalinks_file= "./content/settings/permalinks.md"
+permalinks_file_contents = None
 
 # Define Output File Names Here
 index_output_file = "index.html"
@@ -76,9 +85,19 @@ with open(nav_menu_settings_file) as nav_menu_file:
         for line in nav_menu_file:
                 if ":" in line:
                         Link, value = line.split('=================END OF NAV MENU============')[0].split(':')  # Needs replaced with regex match 
-                        NavMenuLinks[Link] = str(value).rstrip() # needs a value added			
+                        NavMenuLinks[Link] = str(value).rstrip() # needs a value added		
+			
+			
+## NEEDS IMPROVEMENT
 
-globals().update(NavMenuLinks)
+PermaLinks = {}
+with open(permalinks_file) as f:
+        for line in f:
+                if ":" in line:
+                        PermaLink, value = line.split('=================END OF PERMALINK SETTINGS============')[0].split(':')  # Needs replaced with regex match 
+                        PermaLinks[PermaLink] = str(value).rstrip() # needs a value added					
+			
+globals().update(PermaLinks)
     
 # Set github url
 #github_url = PUBLIC_GITHUB_MARKDOWN_URL
@@ -161,10 +180,11 @@ else:
   Facebook_Meta += """<meta property="og:description" content="A Simply Docs / Blog Template built using Simple.css.">"""
 
 
+Blog_Output_Path = NavMenuLinks['Blog_PermaLink'] + output_file
 
 # Write the file out that we have created
 try:
-    with codecs.open(output_file, 'w', encoding='utf-8') as f:
+    with codecs.open(Blog_Output_Path, 'w', encoding='utf-8') as f:
         f.write(f"""<head><title>{SiteTitle}</title>
             <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
