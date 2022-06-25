@@ -83,3 +83,23 @@
 
 
 Let's rename \*<button>test</button>\* to \*our-old-project\*.
+
+
+<main>
+<h2>Simply Docs / Blog</h2>
+<p>A clean, easy to edit free HTML template that you can use for a personal blog or for documentation purposes for your next project! Some cool features about this template include the following:</p>
+<ul>
+  <li>An amazing looking <code>blog / documentation</code> template.</li>
+  <li>Ready to host on Github Pages!</li>
+  <li>Automagic flipping to dark mode.</li>
+  <li>Fully responsive.</li>
+  <li>Make changes using only standard HTML elements!</li>
+  <li>Easy to edit!</li>
+  <li style="color:blue;">Apply your own CSS style with ease!</li>
+  <li>Super lightweight & <strong>fast</strong>.</li>
+	<a href="/Simply-Docs/pages/documentation#syntax_highlighting"><li>Syntax highlighting (Click to find out more)</li> 
+	</a> 
+	<a href="/Simply-Docs/pages/documentation#markdown_example"><li>Markdown Support! (Click to find out more)</li> 
+	</a> 
+</ul>
+</main>
