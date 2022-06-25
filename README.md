@@ -24,7 +24,8 @@ OG_Description: test one
 
 =================END OF SEO SETTINGS============
 
-
+<github-md>
+    
 ## Hello world 
 
 
@@ -50,4 +51,4 @@ puts markdown.to_html
 
 test 
 
-
+</github-md>
