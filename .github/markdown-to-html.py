@@ -77,7 +77,7 @@ with open(nav_menu_settings_file) as nav_menu_file:
 globals().update(NavMenuLinks)
     
 # Set github url
-github_url = PUBLIC_GITHUB_MARKDOWN_URL
+#github_url = PUBLIC_GITHUB_MARKDOWN_URL
 
 # Make the request to github to create markdown
 #payload = {"text": input_file_contents, "mode": "markdown"}
