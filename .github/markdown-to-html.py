@@ -35,7 +35,7 @@ with open(permalinks_file) as f:
 globals().update(PermaLinks)
 
 # Define Input File Names / Paths Here
-output_file = PermaLinks['Blog_PermaLink'] + "blog_post.html"
+
 
 os.makedirs(os.path.dirname(output_file), exist_ok=True)
 
@@ -58,8 +58,7 @@ nav_menu_settings_file_contents = None
 
 # Define Output File Names Here
 index_output_file = "index.html"
-output_file = "./pages/test2.html"
-output_file.parent.mkdir(exist_ok=True, parents=True)
+output_file = PermaLinks['Blog_PermaLink'] + "blog_post.html"
 
 # Open the templates
 blog_post_template = ".github/static-gen/html_templates/blog_post.html"
