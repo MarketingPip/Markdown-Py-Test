@@ -9,14 +9,18 @@ import json
 
 PUBLIC_GITHUB_MARKDOWN_URL = 'https://api.github.com/markdown'
 
+
+# Define Input File Names / Paths Here
 input_file = "README.md"
 input_file_contents = None
-
-
 index_file = "index.md"
 index_file_contents = None
-index_output_file = "index.html"
+nav_menu_settings_file= "/content/settings/nav_menu.md"
+nav_menu_settings_file_contents = None
 
+
+# Define Output File Names Here
+index_output_file = "index.html"
 output_file = "test.html"
 
 
@@ -33,10 +37,9 @@ except IOError:
 
 # Open our file and
 try:
-    with open(input_file, 'r') as f:
+    with open(input_file, 'r') as f, open(nav_menu_settings_file 'r') as nav_menu_file:
         input_file_contents = f.read()
-        input_file_contents = input_file_contents.split("=================END OF SEO SETTINGS============",1)[1] # Get all content after SEO settings
-        
+        input_file_contents = input_file_contents.split("=================END OF SEO SETTINGS============",1)[1] # Get all after before SEO settings
         
 except IOError:
     sys.exit('Input file does not exist, or has no content.  Exiting')
@@ -54,16 +57,24 @@ except IOError:
 
 
 
-var = {}
+
 var = {}
 with open(input_file) as conf:
         for line in conf:
                 if ":" in line:
                         name, value = line.split('=================END OF SEO SETTINGS============')[0].split(':')  # Needs replaced with regex match 
                         var[name] = str(value).rstrip() # needs a value added
-                        
-globals().update(var)
 
+globals().update(var)	
+
+NavMenuLinks = {}
+with open(nav_menu_settings_file) as nav_menu_file:
+        for line in nav_menu_file:
+                if ":" in line:
+                        link, value = line.split('=================END OF NAV MENU============')[0].split('====')  # Needs replaced with regex match 
+                        NavMenuLinks[link] = str(value).rstrip() # needs a value added			
+
+globals().update(NavMenuLinks)
     
 # Set github url
 github_url = PUBLIC_GITHUB_MARKDOWN_URL
@@ -93,6 +104,16 @@ if index_output_file[-5:] != '.html':
 
 
 
+NavMenu = NavMenuLinks
+
+if not NavMenu['Link']:
+  NavMenu = ""
+else:
+  NavMenu = NavMenu['Link']
+
+
+for value in NavMenu:
+	print(value)
 
 data = var 
 
