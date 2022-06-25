@@ -180,7 +180,7 @@ else:
   Facebook_Meta += """<meta property="og:description" content="A Simply Docs / Blog Template built using Simple.css.">"""
 
 
-Blog_Output_Path = NavMenuLinks['Blog_PermaLink'] + output_file
+Blog_Output_Path = PermaLinks['Blog_PermaLink'] + output_file
 
 # Write the file out that we have created
 try:
