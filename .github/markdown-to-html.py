@@ -29,7 +29,7 @@ nav_menu_settings_file_contents = None
 
 ## Permalink Settings
 
-permalinks_file= "./content/settings/permalinks.md"
+permalinks_file= ".github/static-gen/settings/permalinks.md"
 permalinks_file_contents = None
 
 # Define Output File Names Here
