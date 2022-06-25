@@ -11,9 +11,13 @@ import json
 
 
 # Define Input File Names / Paths Here
-input_file = "README.md"
+
+# Blog File Example
+input_file = ".github/static-gen/content/blog_posts/EXAMPLE.MD"
 input_file_contents = None
-index_file = "index.md"
+
+# Index File
+index_file = ".github/static-gen/content/index.md"
 index_file_contents = None
 nav_menu_settings_file= "./content/settings/nav_menu.md"
 nav_menu_settings_file_contents = None
