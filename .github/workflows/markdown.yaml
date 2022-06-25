@@ -15,13 +15,13 @@ jobs:
      # Setup Python
     - run: sudo apt-get install python3
     - uses: actions/checkout@v2
-    - name: Run Python Script
+    - name: Convert Markdown To HTML 
     # Run the Python Script
       run: python3 .github/markdown-to-html.py
 
 
 
-    - name: Commit and Push
+    - name: Commit and Push Updated Content 
       run: |
          git config --global user.name "github-actions[bot]"
          git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
