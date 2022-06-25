@@ -1,4 +1,5 @@
 =================START OF SEO SETTINGS============
+
 <code>Blog Title</code>
 
 BlogTitle:Hello World
@@ -29,6 +30,7 @@ OG_Description: test one
     
 ## Hello world 
 
+Check it     
 
 So cool
 
@@ -53,3 +55,5 @@ puts markdown.to_html
 test 
 
 </github-md>
+
+<h1> Normal HTML </h1> 
