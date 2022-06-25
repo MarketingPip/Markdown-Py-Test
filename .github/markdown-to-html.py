@@ -37,7 +37,7 @@ except IOError:
 
 # Open our file and
 try:
-    with open(input_file, 'r') as f, open(nav_menu_settings_file 'r') as nav_menu_file:
+    with open(input_file, 'r') as f:
         input_file_contents = f.read()
         input_file_contents = input_file_contents.split("=================END OF SEO SETTINGS============",1)[1] # Get all after before SEO settings
         
