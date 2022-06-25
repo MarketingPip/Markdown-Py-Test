@@ -71,7 +71,7 @@ NavMenuLinks = {}
 with open(nav_menu_settings_file) as nav_menu_file:
         for line in nav_menu_file:
                 if ":" in line:
-                        Link, value = line.split('=================END OF NAV MENU============')[0].split('====')  # Needs replaced with regex match 
+                        Link, value = line.split('=================END OF NAV MENU============')[0].split(':')  # Needs replaced with regex match 
                         NavMenuLinks[Link] = str(value).rstrip() # needs a value added			
 
 globals().update(NavMenuLinks)
@@ -107,9 +107,9 @@ if index_output_file[-5:] != '.html':
 NavMenu = NavMenuLinks
 
 if not NavMenu['Link']:
-  NavMenu = ""
+  NavMenu_Content = ""
 else:
-  NavMenu = NavMenu['Link']
+  NavMenu_Content = NavMenu['Link']
 
 
 for value in NavMenu:
