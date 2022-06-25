@@ -34,7 +34,7 @@ permalinks_file_contents = None
 
 # Define Output File Names Here
 index_output_file = "index.html"
-output_file = "test.html"
+output_file = "/pages/test.html"
 
 
 # Open the templates
@@ -185,7 +185,7 @@ print(Blog_Output_Path)
 
 # Write the file out that we have created
 try:
-    with codecs.open(Blog_Output_Path, 'w', encoding='utf-8') as f:
+    with codecs.open(output_file, 'w', encoding='utf-8') as f:
         f.write(f"""<head><title>{SiteTitle}</title>
             <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
