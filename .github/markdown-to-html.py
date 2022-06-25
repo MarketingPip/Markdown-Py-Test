@@ -71,8 +71,8 @@ NavMenuLinks = {}
 with open(nav_menu_settings_file) as nav_menu_file:
         for line in nav_menu_file:
                 if ":" in line:
-                        link, value = line.split('=================END OF NAV MENU============')[0].split('====')  # Needs replaced with regex match 
-                        NavMenuLinks[link] = str(value).rstrip() # needs a value added			
+                        Link, value = line.split('=================END OF NAV MENU============')[0].split('====')  # Needs replaced with regex match 
+                        NavMenuLinks[Link] = str(value).rstrip() # needs a value added			
 
 globals().update(NavMenuLinks)
     
