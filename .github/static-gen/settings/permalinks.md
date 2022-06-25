@@ -1,3 +1,3 @@
-Blog_PermaLink:blog-posts/
+Blog_PermaLink:blog/
 
 =================END OF PERMALINK SETTINGS============
