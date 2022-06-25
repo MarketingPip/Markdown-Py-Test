@@ -4,10 +4,10 @@
 import codecs
 import sys
 import re
-import requests
+#import requests
 import json
 
-PUBLIC_GITHUB_MARKDOWN_URL = 'https://api.github.com/markdown'
+#PUBLIC_GITHUB_MARKDOWN_URL = 'https://api.github.com/markdown'
 
 
 # Define Input File Names / Paths Here
@@ -80,8 +80,8 @@ globals().update(NavMenuLinks)
 github_url = PUBLIC_GITHUB_MARKDOWN_URL
 
 # Make the request to github to create markdown
-payload = {"text": input_file_contents, "mode": "markdown"}
-html_response = requests.post(github_url, json=payload)
+#payload = {"text": input_file_contents, "mode": "markdown"}
+#html_response = requests.post(github_url, json=payload)
 
 # Determine our output file
 if output_file:
@@ -351,6 +351,7 @@ pre[class*="language-"] {
 }
 </style>
 <!-- Image and text -->
+<body>
 <div class="banner">
       <div class="container">""" +
      f"<h1>{BlogTitle} t</h1>" + 
@@ -358,9 +359,10 @@ pre[class*="language-"] {
       </div>
     </div>
     <div class="container blogpost-content"> """ +
-   html_response.text + """
+   input_file_contents + """
     </div>
-	
+	</body>
+	 <script src="https://cdn.jsdelivr.net/gh/MarketingPipeline/Markdown-Tag/markdown-tag-GitHub.js"></script> 
 	""")
 except IOError:
     sys.exit(u'Unable to write to file: {0}'.format(output_file))
