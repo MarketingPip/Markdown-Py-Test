@@ -181,6 +181,7 @@ else:
 
 
 Blog_Output_Path = PermaLinks['Blog_PermaLink'] + output_file
+print(Blog_Output_Path)
 
 # Write the file out that we have created
 try:
