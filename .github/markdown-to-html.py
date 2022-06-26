@@ -42,7 +42,7 @@ for file in getListOfFiles(dirName):
 
 
         # Need to work on putting files in right locations with permalink functions 
-        if file.startswith('index'):
+        if "index" in file: 
           FilePath = ""
         else:
           FilePath = "test/"      
