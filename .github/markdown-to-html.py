@@ -13,29 +13,32 @@ from pathlib import Path
 
 #PUBLIC_GITHUB_MARKDOWN_URL = 'https://api.github.com/markdown'
 
-
+testdir = "blog-posts"
 
 ## To do - get all files and contents and convert correctly
-#def getListOfFiles(dirName):
-   # listOfFile = os.listdir(dirName)
-   # allFiles = list()
+def getListOfFiles(dirName):
+    listOfFile = os.listdir(dirName)
+    allFiles = list()
     # Iterate over all the entries
-   # for entry in listOfFile:
-        # Create full path
-      #  fullPath = os.path.join(dirName, entry)
+    for entry in listOfFile:
+       #  Create full path
+        fullPath = os.path.join(dirName, entry)
         # If entry is a directory then get the list of files in this directory
-     #   if os.path.isdir(fullPath):
-    #        allFiles = allFiles + getListOfFiles(fullPath)
-   #     else:
-  #          allFiles.append(fullPath)
+        if os.path.isdir(fullPath):
+            allFiles = allFiles + getListOfFiles(fullPath)
+        else:
+            allFiles.append(fullPath)
 
- #   return allFiles
+    return allFiles
 
 
-#for file in getListOfFiles(dirName):
-    #file_name = os.path.join(dirName, file)
+for file in getListOfFiles(dirName):
+    file_name = os.path.join(dirName, file)
     # Grab only the file name from the string
-    #FileNameOnly = os.path.basename(file)
+    FileNameOnly = Path(file).stem
+    print(FileNameOnly)
+    
+
 
 
 # Permalinks for File Paths
