@@ -13,7 +13,7 @@ from pathlib import Path
 
 #PUBLIC_GITHUB_MARKDOWN_URL = 'https://api.github.com/markdown'
 
-testdir = "blog-posts"
+dirName = "blog-posts"
 
 ## To do - get all files and contents and convert correctly
 def getListOfFiles(dirName):
