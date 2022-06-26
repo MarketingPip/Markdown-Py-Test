@@ -82,7 +82,6 @@
 </div>
 
 
-Let's rename \*<button>test</button>\* to \*our-old-project\*.
 
 
 <main>
@@ -102,4 +101,7 @@ Let's rename \*<button>test</button>\* to \*our-old-project\*.
 	<a href="/Simply-Docs/pages/documentation#markdown_example"><li>Markdown Support! (Click to find out more)</li> 
 	</a> 
 </ul>
+<github-md>
+# I wrote this section in markdown! View my source on Github
+</github-md>
 </main>
