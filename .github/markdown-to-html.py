@@ -33,16 +33,6 @@ def getListOfFiles(dirName):
     return allFiles
 
 
-try:
-    with codecs.open(index_output_file, 'w', encoding='utf-8') as f:
-        f.write(f"""
-	<link rel="stylesheet" href="./assets/style.css">
-	<body>{index_file_contents}</body>
-	   <script src="https://cdn.jsdelivr.net/gh/MarketingPipeline/Markdown-Tag/markdown-tag-GitHub.js"></script> 
-	""")
-except IOError: 
-    sys.exit(u'Unable to write to file: {0}'.format(index_output_file))
-
 
 for file in getListOfFiles(dirName):
     file_name = os.path.join(dirName, file)
@@ -58,7 +48,7 @@ for file in getListOfFiles(dirName):
 	   <script src="https://cdn.jsdelivr.net/gh/MarketingPipeline/Markdown-Tag/markdown-tag-GitHub.js"></script> 
 	""")
         except IOError: 
-         sys.exit(u'Unable to write to file: {0}'.format(index_output_file))  
+         sys.exit(u'Unable to write to file: {0}'.format(file_contents))  
   
 
     
