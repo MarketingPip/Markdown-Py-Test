@@ -35,8 +35,7 @@ def getListOfFiles(dirName):
 
 
 for file in getListOfFiles(dirName):
-    file_name = os.path.join(dirName, file)
-    with open(file_name, 'r') as f:
+    with open(file, 'r') as f:
         file_contents = f.read()
         file_contents = file_contents
         # Grab only the file name from the string
