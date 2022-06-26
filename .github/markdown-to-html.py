@@ -15,6 +15,28 @@ from pathlib import Path
 
 
 
+## To do - get all files and contents and convert correctly
+#def getListOfFiles(dirName):
+   # listOfFile = os.listdir(dirName)
+   # allFiles = list()
+    # Iterate over all the entries
+   # for entry in listOfFile:
+        # Create full path
+      #  fullPath = os.path.join(dirName, entry)
+        # If entry is a directory then get the list of files in this directory
+     #   if os.path.isdir(fullPath):
+    #        allFiles = allFiles + getListOfFiles(fullPath)
+   #     else:
+  #          allFiles.append(fullPath)
+
+ #   return allFiles
+
+
+#for file in getListOfFiles(dirName):
+    #file_name = os.path.join(dirName, file)
+    # Grab only the file name from the string
+    #FileNameOnly = os.path.basename(file)
+
 
 # Permalinks for File Paths
 
