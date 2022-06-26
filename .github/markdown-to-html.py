@@ -39,7 +39,14 @@ for file in getListOfFiles(dirName):
         file_contents = f.read()
         file_contents = file_contents
         # Grab only the file name from the string
-        file_name = "test/" + Path(file).stem + ".html"
+
+
+        # Need to work on putting files in right locations with permalink functions 
+        if file.startswith('index'):
+          FilePath = ""
+        else:
+          FilePath = "test/"      
+        file_name = FilePath + Path(file).stem + ".html"
         try:
           with codecs.open(file_name, 'w', encoding='utf-8') as f:
             f.write(f"""<link rel="stylesheet" href="./assets/style.css">
@@ -95,17 +102,17 @@ nav_menu_settings_file_contents = None
 
 
 # Define Output File Names Here
-index_output_file = "index.html"
+#index_output_file = "index.html"
 
 
 # Open the templates
-blog_post_template = ".github/static-gen/html_templates/blog_post.html"
+#blog_post_template = ".github/static-gen/html_templates/blog_post.html"
 
-try:
-    with open(blog_post_template, 'r') as f:
-        blog_post_template_contents = f.read()
-except IOError:
-    sys.exit('Template does not exist, or has no content.  Exiting')
+#try:
+ #   with open(blog_post_template, 'r') as f:
+  #      blog_post_template_contents = f.read()
+#except IOError:
+ #   sys.exit('Template does not exist, or has no content.  Exiting')
 
 
 
@@ -159,23 +166,23 @@ with open(nav_menu_settings_file) as nav_menu_file:
 #html_response = requests.post(github_url, json=payload)
 
 # Determine our output file
-if output_file:
-    output_file = output_file
-else:
-    output_file = u'{0}.html'.format(input_file)
+#if output_file:
+ #   output_file = output_file
+#else:
+ #   output_file = u'{0}.html'.format(input_file)
 
 # ensure we have a .html suffix on our file
-if index_output_file[-5:] != '.html':
-    index_output_file += '.html'
+#if index_output_file[-5:] != '.html':
+#    index_output_file += '.html'
 
-if index_output_file:
-    index_output_file = index_output_file
-else:
-    index_output_file = u'{0}.html'.format(index_file)
+#if index_output_file:
+ #   index_output_file = index_output_file
+#else:
+ #   index_output_file = u'{0}.html'.format(index_file)
 
 # ensure we have a .html suffix on our file
-if index_output_file[-5:] != '.html':
-    index_output_file += '.html'
+#if index_output_file[-5:] != '.html':
+ #   index_output_file += '.html'
 
 
 
@@ -445,12 +452,12 @@ except IOError:
 
 
 # Write the index file out
-try:
-    with codecs.open(index_output_file, 'w', encoding='utf-8') as f:
-        f.write(f"""
-	<link rel="stylesheet" href="./assets/style.css">
-	<body>{index_file_contents}</body>
-	   <script src="https://cdn.jsdelivr.net/gh/MarketingPipeline/Markdown-Tag/markdown-tag-GitHub.js"></script> 
-	""")
-except IOError: 
-    sys.exit(u'Unable to write to file: {0}'.format(index_output_file))
+#try:
+ #   with codecs.open(index_output_file, 'w', encoding='utf-8') as f:
+  #      f.write(f"""
+	#<link rel="stylesheet" href="./assets/style.css">
+	#<body>{index_file_contents}</body>
+	#   <script src="https://cdn.jsdelivr.net/gh/MarketingPipeline/Markdown-Tag/markdown-tag-GitHub.js"></script> 
+	#""")
+#except IOError: 
+ #   sys.exit(u'Unable to write to file: {0}'.format(index_output_file))
