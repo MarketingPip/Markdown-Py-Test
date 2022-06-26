@@ -13,9 +13,10 @@ from pathlib import Path
 
 #PUBLIC_GITHUB_MARKDOWN_URL = 'https://api.github.com/markdown'
 
-dirName = "blog-posts"
+dirName = ".github/static-gen/content"
 
-## To do - get all files and contents and convert correctly
+## To do - get all files and contents and convert correctly (Need if statements added for paths like index etc)
+## Need to remove paths that were changed for perma links automacially?
 def getListOfFiles(dirName):
     listOfFile = os.listdir(dirName)
     allFiles = list()
