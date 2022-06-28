@@ -72,13 +72,16 @@ for file in getListOfFiles(dirName):
             ## If file does not contain settings (pass) for now. Will be future requirement 
             pass
 
-        if ".github/static-gen/content/blog_posts/" in file: 
-          ## If blog post - define template & grab file path and more here.
-          Template = f"""<link rel="stylesheet" href="./assets/style.css">
-          <h1> Example Blop Post</h1>
-	<body>{file_contents}</body>
-	   <script src="https://cdn.jsdelivr.net/gh/MarketingPipeline/Markdown-Tag/markdown-tag-GitHub.js"></script> 
-	"""
+
+       ## This does NOT work 
+        
+      #  if ".github/static-gen/content/blog_posts/" in file: 
+     #     ## If blog post - define template & grab file path and more here.
+    #      Template = f"""<link rel="stylesheet" href="./assets/style.css">
+   #       <h1> Example Blop Post</h1>
+	#<body>{file_contents}</body>
+	 #  <script src="https://cdn.jsdelivr.net/gh/MarketingPipeline/Markdown-Tag/markdown-tag-GitHub.js"></script> 
+	#"""
 
         if "index" in file: 
           Template = f"""<link rel="stylesheet" href="./assets/style.css">
