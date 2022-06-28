@@ -184,14 +184,14 @@ input_file_contents = None
 
 
 
-var = {}
-with open(input_file) as conf:
-        for line in conf:
-                if ":" in line:
-                        name, value = line.split('=================END OF SEO SETTINGS============')[0].split(':')  # Needs replaced with regex match 
-                        var[name] = str(value).rstrip() # needs a value added
+#var = {}
+#with open(input_file) as conf:
+ #       for line in conf:
+ #               if ":" in line:
+  #                      name, value = line.split('=================END OF SEO SETTINGS============')[0].split(':')  # Needs replaced with regex match 
+   #                     var[name] = str(value).rstrip() # needs a value added
 
-globals().update(var)	
+#globals().update(var)	
 
 #NavMenuLinks = {}
 #with open(nav_menu_settings_file) as nav_menu_file:
@@ -242,6 +242,90 @@ globals().update(var)
 #for value in NavMenu:
 #	print(value)
 
+
+
+
+# Open our file and
+try:
+    with open(input_file, 'r') as f:
+        input_file_contents = f.read()
+        input_file_contents = input_file_contents.split("=================END OF SEO SETTINGS============",1)[1] # Get all after before SEO settings
+        
+except IOError:
+    sys.exit('Input file does not exist, or has no content.  Exiting')
+
+# Open Index File
+
+try:
+    with open(index_file, 'r') as f:
+        index_file_contents = f.read()
+        
+        
+except IOError:
+    sys.exit('Input file does not exist, or has no content.  Exiting')
+
+
+
+
+
+var = {}
+with open(input_file) as conf:
+        for line in conf:
+                if ":" in line:
+                        name, value = line.split('=================END OF SEO SETTINGS============')[0].split(':')  # Needs replaced with regex match 
+                        var[name] = str(value).rstrip() # needs a value added
+
+globals().update(var)	
+
+NavMenuLinks = {}
+with open(nav_menu_settings_file) as nav_menu_file:
+        for line in nav_menu_file:
+                if ":" in line:
+                        Link, value = line.split('=================END OF NAV MENU============')[0].split(':')  # Needs replaced with regex match 
+                        NavMenuLinks[Link] = str(value).rstrip() # needs a value added		
+			
+			
+
+    
+# Set github url
+#github_url = PUBLIC_GITHUB_MARKDOWN_URL
+
+# Make the request to github to create markdown
+#payload = {"text": input_file_contents, "mode": "markdown"}
+#html_response = requests.post(github_url, json=payload)
+
+# Determine our output file
+#if output_file:
+ #   output_file = output_file
+#else:
+ #   output_file = u'{0}.html'.format(input_file)
+
+# ensure we have a .html suffix on our file
+#if index_output_file[-5:] != '.html':
+#    index_output_file += '.html'
+
+#if index_output_file:
+ #   index_output_file = index_output_file
+#else:
+ #   index_output_file = u'{0}.html'.format(index_file)
+
+# ensure we have a .html suffix on our file
+#if index_output_file[-5:] != '.html':
+ #   index_output_file += '.html'
+
+
+
+NavMenu = NavMenuLinks
+
+if not NavMenu['Link']:
+  NavMenu_Content = ""
+else:
+  NavMenu_Content = NavMenu['Link']
+
+
+for value in NavMenu:
+	print(value)
+
 data = var 
 
 BlogTitle = data['BlogTitle']
@@ -284,7 +368,6 @@ else:
   Facebook_Meta += """<meta property="og:description" content="A Simply Docs / Blog Template built using Simple.css.">"""
 
 
-output_file = PermaLinks['Blog_PermaLink'] + "blog_post.html"
 
 # Write the file out that we have created
 try:
@@ -293,12 +376,8 @@ try:
             <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-
 <script src="https://cdn.jsdelivr.net/npm/prismjs@1.28.0/prism.min.js"></script>
 {Facebook_Meta}         
-
-
      </head>""" + """
 	<style>
 	
@@ -306,7 +385,6 @@ try:
  * GHColors theme by Avi Aryan (http://aviaryan.in)
  * Inspired by Github syntax coloring
  */
-
 code[class*="language-"],
 pre[class*="language-"] {
 	color: #393A34;
@@ -318,31 +396,25 @@ pre[class*="language-"] {
 	word-break: normal;
 	font-size: .9em;
 	line-height: 1.2em;
-
 	-moz-tab-size: 4;
 	-o-tab-size: 4;
 	tab-size: 4;
-
 	-webkit-hyphens: none;
 	-moz-hyphens: none;
 	-ms-hyphens: none;
 	hyphens: none;
 }
-
 pre > code[class*="language-"] {
 	font-size: 1em;
 }
-
 pre[class*="language-"]::-moz-selection, pre[class*="language-"] ::-moz-selection,
 code[class*="language-"]::-moz-selection, code[class*="language-"] ::-moz-selection {
 	background: #b3d4fc;
 }
-
 pre[class*="language-"]::selection, pre[class*="language-"] ::selection,
 code[class*="language-"]::selection, code[class*="language-"] ::selection {
 	background: #b3d4fc;
 }
-
 /* Code blocks */
 pre[class*="language-"] {
 	padding: 1em;
@@ -351,7 +423,6 @@ pre[class*="language-"] {
 	border: 1px solid #dddddd;
 	background-color: white;
 }
-
 /* Inline code */
 :not(pre) > code[class*="language-"] {
 	padding: .2em;
@@ -360,7 +431,6 @@ pre[class*="language-"] {
 	background: #f8f8f8;
 	border: 1px solid #dddddd;
 }
-
 .token.comment,
 .token.prolog,
 .token.doctype,
@@ -368,21 +438,17 @@ pre[class*="language-"] {
 	color: #999988;
 	font-style: italic;
 }
-
 .token.namespace {
 	opacity: .7;
 }
-
 .token.string,
 .token.attr-value {
 	color: #e3116c;
 }
-
 .token.punctuation,
 .token.operator {
 	color: #393A34; /* no highlight */
 }
-
 .token.entity,
 .token.url,
 .token.symbol,
@@ -395,32 +461,27 @@ pre[class*="language-"] {
 .token.inserted {
 	color: #36acaa;
 }
-
 .token.atrule,
 .token.keyword,
 .token.attr-name,
 .language-autohotkey .token.selector {
 	color: #00a4db;
 }
-
 .token.function,
 .token.deleted,
 .language-autohotkey .token.tag {
 	color: #9a050f;
 }
-
 .token.tag,
 .token.selector,
 .language-autohotkey .token.keyword {
 	color: #00009f;
 }
-
 .token.important,
 .token.function,
 .token.bold {
 	font-weight: bold;
 }
-
 .token.italic {
 	font-style: italic;
 }
@@ -459,7 +520,6 @@ pre[class*="language-"] {
 }
 .blogpost-content p {
   font-weigh: lighter;
-
   
 }
 @media(max-width: 992px) {
@@ -494,6 +554,7 @@ pre[class*="language-"] {
 	""")
 except IOError:
     sys.exit(u'Unable to write to file: {0}'.format(output_file))
+
 
 
 
