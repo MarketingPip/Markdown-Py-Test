@@ -315,16 +315,16 @@ globals().update(var)
 
 
 
-NavMenu = NavMenuLinks
+#NavMenu = NavMenuLinks
 
-if not NavMenu['Link']:
-  NavMenu_Content = ""
-else:
-  NavMenu_Content = NavMenu['Link']
+#if not NavMenu['Link']:
+ # NavMenu_Content = ""
+#else:
+ # NavMenu_Content = NavMenu['Link']
 
 
-for value in NavMenu:
-	print(value)
+#for value in NavMenu:
+#	print(value)
 
 data = var 
 
