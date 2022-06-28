@@ -91,7 +91,7 @@ for file in getListOfFiles(dirName):
 	<body>{file_contents}</body>
 	   <script src="https://cdn.jsdelivr.net/gh/MarketingPipeline/Markdown-Tag/markdown-tag-GitHub.js"></script> 
 	"""
-          FilePath = "pages/"   
+          FilePath = "test/"   
 
         file_name = FilePath + Path(file).stem + ".html"
 
