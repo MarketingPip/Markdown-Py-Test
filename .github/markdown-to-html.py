@@ -256,13 +256,13 @@ except IOError:
 
 # Open Index File
 
-try:
-    with open(index_file, 'r') as f:
-        index_file_contents = f.read()
+#try:
+  #  with open(index_file, 'r') as f:
+ #       index_file_contents = f.read()
         
         
-except IOError:
-    sys.exit('Input file does not exist, or has no content.  Exiting')
+#except IOError:
+   # sys.exit('Input file does not exist, or has no content.  Exiting')
 
 
 
