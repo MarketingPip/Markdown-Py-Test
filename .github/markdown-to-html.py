@@ -277,12 +277,12 @@ with open(input_file) as conf:
 
 globals().update(var)	
 
-NavMenuLinks = {}
-with open(nav_menu_settings_file) as nav_menu_file:
-        for line in nav_menu_file:
-                if ":" in line:
-                        Link, value = line.split('=================END OF NAV MENU============')[0].split(':')  # Needs replaced with regex match 
-                        NavMenuLinks[Link] = str(value).rstrip() # needs a value added		
+#NavMenuLinks = {}
+#with open(nav_menu_settings_file) as nav_menu_file:
+ #       for line in nav_menu_file:
+  #              if ":" in line:
+   #                     Link, value = line.split('=================END OF NAV MENU============')[0].split(':')  # Needs replaced with regex match 
+    #                    NavMenuLinks[Link] = str(value).rstrip() # needs a value added		
 			
 			
 
