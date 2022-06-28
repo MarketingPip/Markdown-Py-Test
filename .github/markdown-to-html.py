@@ -368,6 +368,7 @@ else:
   Facebook_Meta += """<meta property="og:description" content="A Simply Docs / Blog Template built using Simple.css.">"""
 
 
+output_file = output_file + "blog_post_SEO_test.html"
 
 # Write the file out that we have created
 try:
