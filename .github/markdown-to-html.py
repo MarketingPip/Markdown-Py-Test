@@ -80,8 +80,6 @@ for file in getListOfFiles(dirName):
 	   <script src="https://cdn.jsdelivr.net/gh/MarketingPipeline/Markdown-Tag/markdown-tag-GitHub.js"></script> 
 	"""
 
-          FilePath = PermaLinks['Blog_PermaLink'] 
-
         if "index" in file: 
           Template = f"""<link rel="stylesheet" href="./assets/style.css">
 	<body>{file_contents}</body>
