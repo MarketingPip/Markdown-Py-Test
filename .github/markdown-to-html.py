@@ -11,6 +11,29 @@ import json
 from pathlib import Path
 
 
+# Permalinks for File Paths
+
+## Permalink Settings
+
+permalinks_file= ".github/static-gen/settings/permalinks.md"
+permalinks_file_contents = None
+
+## NEEDS IMPROVEMENT
+
+PermaLinks = {}
+with open(permalinks_file) as f:
+        for line in f:
+                if ":" in line:
+                        PermaLink, value = line.split('=================END OF PERMALINK SETTINGS============')[0].split(':')  # Needs replaced with regex match 
+                        PermaLinks[PermaLink] = str(value).rstrip() # needs a value added					
+			
+globals().update(PermaLinks)
+output_file = PermaLinks['Blog_PermaLink']
+
+
+
+
+
 #PUBLIC_GITHUB_MARKDOWN_URL = 'https://api.github.com/markdown'
 
 dirName = ".github/static-gen/content"
@@ -42,17 +65,41 @@ for file in getListOfFiles(dirName):
 
 
         # Need to work on putting files in right locations with permalink functions 
-        if "index" in file: 
-          FilePath = ""
-        else:
-          FilePath = "test/"      
-        file_name = FilePath + Path(file).stem + ".html"
-        try:
-          with codecs.open(file_name, 'w', encoding='utf-8') as f:
-            f.write(f"""<link rel="stylesheet" href="./assets/style.css">
+        if ".github/static-gen/content/" in file:
+          try:
+             file_contents = file_contents.split("=================END OF SEO SETTINGS============",1)[1] # Get all after before SEO settings
+          except:
+            ## If file does not contain settings (pass) for now. Will be future requirement 
+            pass
+
+        if ".github/static-gen/content/blog_posts/" in file: 
+          ## If blog post - define template & grab file path and more here.
+          Template = f"""<link rel="stylesheet" href="./assets/style.css">
+          <h1> Example Blop Post</h1>
 	<body>{file_contents}</body>
 	   <script src="https://cdn.jsdelivr.net/gh/MarketingPipeline/Markdown-Tag/markdown-tag-GitHub.js"></script> 
-	""")
+	"""
+
+          FilePath = PermaLinks['Blog_PermaLink'] 
+
+        if "index" in file: 
+          Template = f"""<link rel="stylesheet" href="./assets/style.css">
+	<body>{file_contents}</body>
+	   <script src="https://cdn.jsdelivr.net/gh/MarketingPipeline/Markdown-Tag/markdown-tag-GitHub.js"></script> 
+	"""
+          FilePath = ""
+        else:
+          Template = f"""<link rel="stylesheet" href="./assets/style.css">
+	<body>{file_contents}</body>
+	   <script src="https://cdn.jsdelivr.net/gh/MarketingPipeline/Markdown-Tag/markdown-tag-GitHub.js"></script> 
+	"""
+          FilePath = "pages/"   
+
+        file_name = FilePath + Path(file).stem + ".html"
+
+        try:
+          with codecs.open(file_name, 'w', encoding='utf-8') as f:
+            f.write()
         except IOError: 
          sys.exit(u'Unable to write to file: {0}'.format(file_contents))  
   
@@ -65,38 +112,38 @@ for file in getListOfFiles(dirName):
 
 ## Permalink Settings
 
-permalinks_file= ".github/static-gen/settings/permalinks.md"
-permalinks_file_contents = None
+#permalinks_file= ".github/static-gen/settings/permalinks.md"
+#permalinks_file_contents = None
 
 ## NEEDS IMPROVEMENT
 
-PermaLinks = {}
-with open(permalinks_file) as f:
-        for line in f:
-                if ":" in line:
-                        PermaLink, value = line.split('=================END OF PERMALINK SETTINGS============')[0].split(':')  # Needs replaced with regex match 
-                        PermaLinks[PermaLink] = str(value).rstrip() # needs a value added					
+#PermaLinks = {}
+#with open(permalinks_file) as f:
+ #       for line in f:
+  #              if ":" in line:
+   #                     PermaLink, value = line.split('=================END OF PERMALINK SETTINGS============')[0].split(':')  # Needs replaced with regex match 
+    #                    PermaLinks[PermaLink] = str(value).rstrip() # needs a value added					
 			
-globals().update(PermaLinks)
-output_file = PermaLinks['Blog_PermaLink'] + "blog_post.html"
+#globals().update(PermaLinks)
+#output_file = PermaLinks['Blog_PermaLink'] + "blog_post.html"
 # Define Input File Names / Paths Here
 
 
-os.makedirs(os.path.dirname(output_file), exist_ok=True)
+#os.makedirs(os.path.dirname(output_file), exist_ok=True)
 
 # Blog File Example
 input_file = ".github/static-gen/content/blog_posts/EXAMPLE.MD"
 input_file_contents = None
 
 # Index File
-index_file = ".github/static-gen/content/index.md"
-index_file_contents = None
+#index_file = ".github/static-gen/content/index.md"
+#index_file_contents = None
 
 # Setting(s) Files
 
 ## Nav Menu
-nav_menu_settings_file= "./content/settings/nav_menu.md"
-nav_menu_settings_file_contents = None
+#nav_menu_settings_file= "./content/settings/nav_menu.md"
+#nav_menu_settings_file_contents = None
 
 
 
@@ -117,23 +164,23 @@ nav_menu_settings_file_contents = None
 
 
 # Open our file and
-try:
-    with open(input_file, 'r') as f:
-        input_file_contents = f.read()
-        input_file_contents = input_file_contents.split("=================END OF SEO SETTINGS============",1)[1] # Get all after before SEO settings
+#try:
+   # with open(input_file, 'r') as f:
+  #      input_file_contents = f.read()
+ #       input_file_contents = input_file_contents.split("=================END OF SEO SETTINGS============",1)[1] # Get all after before SEO settings
         
-except IOError:
-    sys.exit('Input file does not exist, or has no content.  Exiting')
+#except IOError:
+ #   sys.exit('Input file does not exist, or has no content.  Exiting')
 
 # Open Index File
 
-try:
-    with open(index_file, 'r') as f:
-        index_file_contents = f.read()
+#try:
+  #  with open(index_file, 'r') as f:
+ #       index_file_contents = f.read()
         
         
-except IOError:
-    sys.exit('Input file does not exist, or has no content.  Exiting')
+#except IOError:
+ #   sys.exit('Input file does not exist, or has no content.  Exiting')
 
 
 
@@ -148,12 +195,12 @@ with open(input_file) as conf:
 
 globals().update(var)	
 
-NavMenuLinks = {}
-with open(nav_menu_settings_file) as nav_menu_file:
-        for line in nav_menu_file:
-                if ":" in line:
-                        Link, value = line.split('=================END OF NAV MENU============')[0].split(':')  # Needs replaced with regex match 
-                        NavMenuLinks[Link] = str(value).rstrip() # needs a value added		
+#NavMenuLinks = {}
+#with open(nav_menu_settings_file) as nav_menu_file:
+ #       for line in nav_menu_file:
+  #              if ":" in line:
+   #                     Link, value = line.split('=================END OF NAV MENU============')[0].split(':')  # Needs replaced with regex match 
+    #                    NavMenuLinks[Link] = str(value).rstrip() # needs a value added		
 			
 			
 
@@ -186,16 +233,16 @@ with open(nav_menu_settings_file) as nav_menu_file:
 
 
 
-NavMenu = NavMenuLinks
+#NavMenu = NavMenuLinks
 
-if not NavMenu['Link']:
-  NavMenu_Content = ""
-else:
-  NavMenu_Content = NavMenu['Link']
+#if not NavMenu['Link']:
+ # NavMenu_Content = ""
+#else:
+ # NavMenu_Content = NavMenu['Link']
 
 
-for value in NavMenu:
-	print(value)
+#for value in NavMenu:
+#	print(value)
 
 data = var 
 
@@ -239,6 +286,7 @@ else:
   Facebook_Meta += """<meta property="og:description" content="A Simply Docs / Blog Template built using Simple.css.">"""
 
 
+output_file = PermaLinks['Blog_PermaLink'] + "blog_post.html"
 
 # Write the file out that we have created
 try:
