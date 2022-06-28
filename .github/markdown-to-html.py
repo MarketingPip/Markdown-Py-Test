@@ -99,7 +99,7 @@ for file in getListOfFiles(dirName):
 
         try:
           with codecs.open(file_name, 'w', encoding='utf-8') as f:
-            f.write()
+            f.write(Template)
         except IOError: 
          sys.exit(u'Unable to write to file: {0}'.format(file_contents))  
   
